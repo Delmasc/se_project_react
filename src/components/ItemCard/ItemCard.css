@@ -1,0 +1,27 @@
+.card {
+  width: 323px;
+  height: 326px;
+  position: relative;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  font-family: "CabinetGrotesk";
+  font-size: 16px;
+}
+
+.card__name {
+  position: absolute;
+  top: 15px;
+  border-radius: 4px;
+  margin: 0;
+  color: #00000099;
+  padding: 2px 12px;
+  text-align: center;
+  background-color: #ffff;
+}
+
+.card__image {
+  /* TODO: refctor */
+  width: 100%;
+  border-radius: 16px;
+}
