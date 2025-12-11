@@ -28,3 +28,7 @@
 .card__image:hover {
   cursor: pointer;
 }
+
+.card__footer {
+  padding-left: 10px;
+}
