@@ -26,6 +26,10 @@
   margin: 0 20px 0 auto;
 }
 
+.header__add-clothes-btn:hover {
+  cursor: pointer;
+}
+
 .header__user-container {
   display: flex;
   align-items: center;

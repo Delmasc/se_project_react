@@ -21,7 +21,10 @@
 }
 
 .card__image {
-  /* TODO: refctor */
   width: 100%;
   border-radius: 16px;
+}
+
+.card__image:hover {
+  cursor: pointer;
 }
