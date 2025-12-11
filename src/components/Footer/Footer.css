@@ -1,0 +1,10 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  font-weight: 500;
+  font-family: "CabinetGrotesk";
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
