@@ -37,6 +37,7 @@ function App() {
         const filterData = filterWeatherData(data);
         setWeatherData(filterData);
       })
+      .catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -66,7 +67,7 @@ function App() {
       <ModalWithForm
         title="New garment"
         buttonText="Add garment"
-        activeModal={activeModal}
+        isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
       >
         <label htmlFor="name" className="modal__label">
@@ -78,7 +79,7 @@ function App() {
             placeholder="Name"
           />
         </label>
-        <label htmlFor="imageurl" className="modal__label">
+        <label className="modal__label">
           Image{" "}
           <input
             type="url"
