@@ -12,6 +12,10 @@
   font-weight: 900;
 }
 
+.header__logo:hover {
+  cursor: pointer;
+}
+
 .header__add-clothes-btn {
   margin: 0;
   font-size: 24px;
@@ -23,7 +27,7 @@
 }
 
 .header__add-clothes-btn {
-  margin: 0 20px 0 auto;
+  margin: 0 20px 0;
 }
 
 .header__add-clothes-btn:hover {
@@ -38,4 +42,13 @@
 
 .header__username {
   margin: 0;
+}
+
+.header__avatar {
+  cursor: pointer;
+}
+
+.header__nav-link {
+  color: black;
+  text-decoration: none;
 }

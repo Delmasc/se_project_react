@@ -1,0 +1,24 @@
+.sidebar__user-container {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 16px;
+  align-items: center;
+  font-family: "CabinetGrotesk";
+  font-weight: 700;
+  font-size: 20px;
+  justify-content: space-between;
+  margin: 0 50px;
+}
+
+.sidebar__avatar {
+  height: 56px;
+}
+
+.sidebar__avatar:hover {
+  cursor: pointer;
+}
+
+.sidebar__username {
+  width: 157px;
+  gap: 116px;
+}
