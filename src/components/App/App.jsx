@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { coordinates, APIkey } from "../../utils/constants";
+import { coordinates, APIKey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import AddItemModal from "../AddItemModal/AddItemModal";
@@ -25,8 +25,6 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
 
-  console.log(selectedCard);
-
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
@@ -44,7 +42,6 @@ function App() {
     setActiveModal("");
   };
   const onAddItem = (inputValues, reset) => {
-
     const newCardData = {
       name: inputValues.name,
       imageUrl: inputValues.imageUrl,
@@ -57,42 +54,48 @@ function App() {
         closeActiveModal();
         reset();
       })
-      .catch(console.error)
-
-
+      .catch(console.error);
   };
 
   const handleDeleteItem = (id) => {
-    api.deleteItem(id)
+    api
+      .deleteItem(id)
       .then(() => {
-        setClothingItems((prevItems) => prevItems.filter(item => item._id !== id));
+        setClothingItems((prevItems) =>
+          prevItems.filter((item) => item._id !== id)
+        );
         closeActiveModal();
       })
       .catch(console.error);
   };
 
-
   useEffect(() => {
-    getWeather(coordinates, APIkey)
-      .then((data) => {
-        const filterData = filterWeatherData(data);
+    const weatherPromise = getWeather(coordinates, APIKey);
+    const itemsPromise = api.getItems();
 
-        const weather = {
-          ...filterData,
-        };
+    Promise.allSettled([weatherPromise, itemsPromise])
+      .then((results) => {
+        const [weatherResult, itemsResult] = results;
 
-        api.getItems()
-          .then((data) => {
-            setClothingItems(data.reverse());
-          })
-          .catch((error) => {
-            console.error("Error fetching items:", error);
-          });
+        // Handle weather fetch result
+        if (weatherResult.status === 'fulfilled') {
+          const data = weatherResult.value;
+          const filterData = filterWeatherData(data);
+          setWeatherData({ ...filterData });
+        } else {
+          console.error('Weather fetch failed:', weatherResult.reason);
+        }
 
-        setWeatherData(weather);
-      })
-      .catch(console.error);
+        // Handle items fetch result
+        if (itemsResult.status === 'fulfilled') {
+          const data = itemsResult.value;
+          setClothingItems(data.reverse());
+        } else {
+          console.error('Items fetch failed:', itemsResult.reason);
+        }
+      });
   }, []);
+
 
 
   useEffect(() => {
@@ -160,3 +163,27 @@ function App() {
 }
 
 export default App;
+
+
+// useEffect(() => {
+//   getWeather(coordinates, APIKey)
+//     .then((data) => {
+//       const filterData = filterWeatherData(data);
+
+//       const weather = {
+//         ...filterData,
+//       };
+
+//       api
+//         .getItems()
+//         .then((data) => {
+//           setClothingItems(data.reverse());
+//         })
+//         .catch((error) => {
+//           console.error("Error fetching items:", error);
+//         });
+
+//       setWeatherData(weather);
+//     })
+//     .catch(console.error);
+// }, []);
