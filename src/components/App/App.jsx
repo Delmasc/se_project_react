@@ -165,25 +165,3 @@ function App() {
 export default App;
 
 
-// useEffect(() => {
-//   getWeather(coordinates, APIKey)
-//     .then((data) => {
-//       const filterData = filterWeatherData(data);
-
-//       const weather = {
-//         ...filterData,
-//       };
-
-//       api
-//         .getItems()
-//         .then((data) => {
-//           setClothingItems(data.reverse());
-//         })
-//         .catch((error) => {
-//           console.error("Error fetching items:", error);
-//         });
-
-//       setWeatherData(weather);
-//     })
-//     .catch(console.error);
-// }, []);
