@@ -8,7 +8,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     weatherType: "",
   };
   const { values, handleChange, reset } = useForm(defaultValues);
-  function handleSumbit(evt) {
+  function handleSubmit(evt) {
     evt.preventDefault();
     onAddItem(values, reset);
   }
@@ -19,7 +19,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
       buttonText="Add garment"
       isOpen={isOpen}
       onClose={onClose}
-      onSubmit={handleSumbit}
+      onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">
         NAME{" "}
