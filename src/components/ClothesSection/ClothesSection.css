@@ -24,6 +24,7 @@
 
 .clothes-section__button:hover {
   cursor: pointer;
+  opacity: 0.5px;
 }
 
 .clothes-section__image {

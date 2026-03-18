@@ -8,7 +8,6 @@ function ItemCard({ item, onCardClick, handleCardLike }) {
     onCardClick(item);
   };
 
-  // const isLiked = item.likes.some((like) => like._id === currentUser.id);
   const isLiked = item.likes
     ? item.likes.some((id) => id === currentUser?._id)
     : false;

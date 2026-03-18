@@ -1,10 +1,10 @@
 // auth.js
 import { handleServerResponse } from "./api";
 
-const baseurl = "http://localhost:3001";
+const baseUrl = "http://localhost:3001";
 
 export const editProfile = ({ name, avatar }) => {
-  return fetch(`${baseurl}/users/me`, {
+  return fetch(`${baseUrl}/users/me`, {
     method: "patch",
     headers: {
       "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export const editProfile = ({ name, avatar }) => {
 };
 
 export const register = ({ name, avatar, email, password }) => {
-  return fetch(`${baseurl}/signup`, {
+  return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export const register = ({ name, avatar, email, password }) => {
 };
 
 export const checkToken = (token) => {
-  return fetch(`${baseurl}/users/me`, {
+  return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export const checkToken = (token) => {
 };
 
 export const authorize = ({ email, password }) => {
-  return fetch(`${baseurl}/signin`, {
+  return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
