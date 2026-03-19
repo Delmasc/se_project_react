@@ -4,6 +4,8 @@
   height: 80px;
   border-radius: 12px;
   overflow: hidden;
+  font-family: "CabinetGrotesk";
+  font-weight: 700;
 }
 
 .weather-card__temp {

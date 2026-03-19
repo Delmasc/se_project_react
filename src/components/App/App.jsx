@@ -107,7 +107,7 @@ function App() {
       });
   };
 
-  const handleRegister = ({ name, avatar, email, password }) => {
+  const handleRegister = ({ name, avatar, email, password }, reset) => {
     auth
       .register({ name, avatar, email, password })
       .then(() => auth.authorize({ email, password }))
@@ -115,19 +115,21 @@ function App() {
         localStorage.setItem("jwt", res.token);
         setIsLoggedIn(true);
         closeActiveModal();
+        reset();
       })
       .catch((err) => {
         console.error("Registration error:", err);
       });
   };
 
-  const handleLogin = ({ email, password }) => {
+  const handleLogin = ({ email, password }, reset) => {
     auth
       .authorize({ email, password })
       .then((res) => {
         localStorage.setItem("jwt", res.token);
         setIsLoggedIn(true);
         closeActiveModal();
+        reset();
       })
       .catch((err) => {
         console.error("Login error:", err);

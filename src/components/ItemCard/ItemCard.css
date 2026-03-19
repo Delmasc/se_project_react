@@ -10,8 +10,6 @@
 }
 
 .card__name {
-  position: absolute;
-  top: 15px;
   border-radius: 4px;
   margin: 0;
   color: #00000099;
@@ -34,13 +32,10 @@
 }
 
 .card__like-button {
-  position: absolute;
   width: 100;
   height: 16px;
-  top: 15px;
-  left: 238px;
   opacity: 1;
-  background-image: url(../../assets/heart.png);
+  background-image: url(../../assets/likebutton.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
@@ -53,4 +48,14 @@
   opacity: 1;
   background-image: url(../../assets/likedheart.svg);
   width: fit-content;
+}
+
+.card__header {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  width: 100%;
 }
