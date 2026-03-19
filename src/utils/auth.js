@@ -4,10 +4,12 @@ import { handleServerResponse } from "./api";
 const baseUrl = "http://localhost:3001";
 
 export const editProfile = ({ name, avatar }) => {
+  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/users/me`, {
-    method: "patch",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
   }).then(handleServerResponse);
