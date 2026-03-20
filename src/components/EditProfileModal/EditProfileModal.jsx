@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function editProfileModal({ isOpen, onClose, onProfile }) {
+function EditProfileModal({ isOpen, onClose, onProfile }) {
   const defaultValues = {
     name: "",
     avatar: "",
@@ -48,7 +48,7 @@ function editProfileModal({ isOpen, onClose, onProfile }) {
         Avatar URL
         <input
           type="url"
-          name="name"
+          name="avatar"
           className="modal__input"
           placeholder="Avatar URL"
           required
@@ -60,4 +60,4 @@ function editProfileModal({ isOpen, onClose, onProfile }) {
   );
 }
 
-export default editProfileModal;
+export default EditProfileModal;
