@@ -1,7 +1,7 @@
 // auth.js
 import { handleServerResponse } from "./api";
 
-const baseUrl = "http://localhost:3001";
+import { baseUrl } from "../utils/constants";
 
 export const editProfile = ({ name, avatar }) => {
   const token = localStorage.getItem("jwt");

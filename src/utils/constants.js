@@ -1,4 +1,8 @@
 // The utils files contain default clothing items
+const baseUrl =
+process.env.NODE_ENV === "production" 
+  ? "https://api.wtwr0.jumpingcrab.com"
+  : "http://localhost:3001";
 
 export const weatherOptions = [
   {
@@ -171,7 +175,7 @@ const defaultClothingItems = [
   },
 ];
 
-export { defaultClothingItems };
+export { defaultClothingItems, baseUrl };
 
 export const coordinates = {
   latitude: 39.76845,
