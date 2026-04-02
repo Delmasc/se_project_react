@@ -256,8 +256,6 @@ function App() {
                 }
               />
             </Routes>
-
-            <Footer />
           </div>
           <AddItemModal
             isOpen={activeModal === "add-garment"}
@@ -289,6 +287,7 @@ function App() {
             onClose={closeActiveModal}
             onProfile={handleEditProfile}
           />
+          <Footer />
         </div>
       </CurrentTemperatureUnitContext.Provider>
     </CurrentUserContext.Provider>

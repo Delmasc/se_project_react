@@ -15,4 +15,12 @@ Video link - https://drive.google.com/file/d/1a7-9Fdmji_9f1lKVIP9bEQAnbrhcMb_u/v
 
 Back end link - https://github.com/Delmasc/se_project_express
 
+Subdomains - wtwr0.jumpingcrab.com , www.wtwr0.jumpingcrab.com	, api.wtwr0.jumpingcrab.com
+
+Subdomains backend - api.wtwr0.jumpingcrab.com
+
+
+
+
+
 <!-- json-server --watch db.json --id _id --port 3001 -->
